@@ -3,13 +3,9 @@
  
 const run = async () => {
   const html5ToPDF = new HTML5ToPDF({
-    inputPath: path.join(__dirname, "assets", "basic.html"),
-    outputPath: path.join(__dirname, "..", "tmp", "output.pdf"),
-    templatePath: path.join(__dirname, "templates", "basic"),
-    include: [
-      path.join(__dirname, "assets", "basic.css"),
-      path.join(__dirname, "assets", "custom-margin.css"),
-    ],
+    inputPath: path.join(__dirname,  "index.html"),
+    outputPath: path.join(__dirname,  "output.pdf"),
+    templatePath: path.join(__dirname, "templates", "basic")
   })
  
   await html5ToPDF.start()
@@ -20,22 +16,5 @@ const run = async () => {
   process.exit(0)
 }
  
- 
-// Use the function in an existing promise chain
-Promise.resolve( 'something' )
-.then( result => {
-  return doSomething( result )
-} )
-.then( result => {
-  // Because async functions are promises under the hood we can treat the run function as a promise
-  return run()
-} )
-.catch( handleErrors )
- 
-// Usage in try/catch block
-try {
-  run()
-} catch (error) {
-  console.error(error);
-}
+
  module.exports = run;

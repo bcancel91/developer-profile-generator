@@ -2,7 +2,7 @@
 //const pdf = require("./toPDF")
 const generateHTML = require("./generateHTML")
 
-const htmlToPDF = require("html5-to-pdf")
+const toPDF = require("./toPDF");
 
 //prompting (3rd party)
 const inquirer = require("inquirer");
@@ -31,8 +31,8 @@ const questions = [
     }
 
 ]
-testPrompt = () => {
-    inquirer.prompt(questions)
+async function testPrompt(){
+    await inquirer.prompt(questions)
     
     .then(function (response){
        console.log(response)
@@ -57,16 +57,15 @@ console.log(res)
         }
 
     const starURL = `https://api.github.com/users/${response.username}/starred`;
-//console.log(starURL)
+console.log(starURL)
 
       axios.get(starURL)
-    
-
       .then(function(response2){
 
 
         console.log(response2);
          let stars = response2.data.length;
+         info.stars = stars;
          console.log(info);
 
          const html = generateHTML(info);
@@ -77,38 +76,26 @@ console.log(res)
 
                console.log(err);
 
-     }
-     
+     } 
  })
-
+      }).then(() => {
+        toPDF();
       })
       .catch(function (err2){
     throw err2
       })
-   // console.log(res);
-    
-    
-       
-
-        
+   // console.log(res);       
 
   })
   //do this if fail
   .catch(function(err){
       throw err
   })
-  
-       
-
-
         
     })
-
-
+    run()
 
 }
-
-
 testPrompt()
 
 

@@ -205,7 +205,7 @@ function generateHTML(info) {
       </div>
       <div class="row">
        <div class="col">
-         <div class="card"><h3>starred</h3><h3> ${stars}</h3></div>
+         <div class="card"><h3>starred</h3><h3> ${info.stars}</h3></div>
        </div>
        <div class="col">
          <div class="card" ><h3>following</h3><h3> ${info.following}</h3></div>
