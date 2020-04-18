@@ -16,7 +16,7 @@ const run = async () => {
   await html5ToPDF.close()
   console.log("Done!")
   process.exit(0)
-}
+};
  
 
  module.exports = run;
