@@ -79,7 +79,7 @@ console.log(starURL)
      } 
  })
       }).then(() => {
-        toPDF();
+       return toPDF();
       })
       .catch(function (err2){
     throw err2
