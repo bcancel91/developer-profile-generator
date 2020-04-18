@@ -4,7 +4,7 @@
 const run = async () => {
   const html5ToPDF = new HTML5ToPDF({
     inputPath: path.join(__dirname,  "index.html"),
-    outputPath: path.join(__dirname,    "output.pdf"),
+    outputPath: path.join(__dirname,  "output.pdf"),
     templatePath: path.join(__dirname, "templates", "basic")
   });
   
